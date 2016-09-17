@@ -1,0 +1,27 @@
+{
+  "name": "express-services",
+  "version": "1.0.0",
+  "description": " Nodule for express to show all enables Ajax urls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sukisuso/express-services.git"
+  },
+  "keywords": [
+    "Express",
+    "Services",
+    "Node"
+  ],
+  "author": "Jesus Juan Aguilar <jesusjuanaguilar@gmail.com> (https://twitter.com/JesusJuAg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sukisuso/express-services/issues"
+  },
+  "homepage": "https://github.com/sukisuso/express-services",
+  "dependencies": {
+    "express": "4.14.0"
+  }
+}

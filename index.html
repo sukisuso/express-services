@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Express - Services</title>
+  </head>
+  <body>
+  <div class="jumbotron">
+  <div class="container">
+  <div class="page-header">
+  <h1>Services</h1>
+</div></div></div>
+<div class="container" >
+  <div id="tableview"></div>
+  </div>
+  
+</body>
+
+<script>
+  $.ajax({
+  url: "/services/getdata",
+  })
+  .done(function( data ) {
+    debugger
+    var cont = 1;
+    var html = "";
+    html+="<table class='table table-hover table-inverse'>";
+    html+="<thead><tr>";
+    html+="<th>#</th>";
+    html+="<th>Service Path</th>";
+    html+="<th>Method</th>";
+    html+="</tr></thead><tbody>";
+
+    for(var i = 0; i < data.length; i++){
+      if(data[i].route!= undefined && data[i].route.path != "/services" && data[i].route.path != "/services/getdata"){
+        html+="<tr><th scope='row'>"+cont+"</th>";
+        html+="<td>"+data[i].route.path+"</td>";
+        html+="<td>@"+data[i].route.stack[0].method+"</td>";
+        html+="</tr>";
+        cont++;
+      }
+    }
+
+    html+="</tbody>"; 
+    html+="</table>";
+
+    var div = $('#tableview')[0];
+    div.innerHTML = html;
+  });
+</script>
+</html>
+
