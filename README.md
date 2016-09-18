@@ -16,6 +16,7 @@ Module for Node.js and Express
 	});	
 
 	runServices(app);
+	app.listen(3000);
 
 ##### Then you can check your running services in http://path:port/services
 ![alt tag](https://github.com/sukisuso/express-services/blob/master/image.png)
